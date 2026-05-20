@@ -57,7 +57,7 @@ def login(dados: Login):
 
     })
 
-    expiracao = datetime.utcnow() + timedelta(hours=1)
+    expiracao = datetime.utcnow() + timedelta(seconds=3600)
 
     novo_token = Token(
 

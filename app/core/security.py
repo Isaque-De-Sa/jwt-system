@@ -6,7 +6,7 @@ SECRET_KEY = "super_secret_key"
 
 ALGORITHM = "HS256"
 
-ACCESS_TOKEN_EXPIRE_MINUTES = 60
+ACCESS_TOKEN_EXPIRE_SECOND = 3600
 
 pwd_context = CryptContext(
     schemes=["bcrypt"],
@@ -23,18 +23,10 @@ def criar_token(data: dict):
 
     dados = data.copy()
 
-    expire = datetime.utcnow() + timedelta(
-        minutes=ACCESS_TOKEN_EXPIRE_MINUTES
-    )
+    expire = datetime.utcnow() + timedelta(seconds=ACCESS_TOKEN_EXPIRE_SECOND)
 
     dados.update({
         "exp": expire
     })
 
-    token = jwt.encode(
-        dados,
-        SECRET_KEY,
-        algorithm=ALGORITHM
-    )
-
-    return token
+    return jwt.encode(dados, SECRET_KEY, algorithm=ALGORITHM)
