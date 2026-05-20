@@ -1,0 +1,529 @@
+    <!DOCTYPE html>
+    <html>
+        <meta charset="UTF-8">
+    <head>
+
+        <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <title>Pagina Inicial</title>
+        <style>
+/* =========================
+   BASE
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #0b1220;
+    --panel: rgba(255, 255, 255, 0.04);
+    --panel-hover: rgba(255, 255, 255, 0.07);
+    --text: #e5e7eb;
+    --muted: rgba(229, 231, 235, 0.7);
+    --primary: #3b82f6;
+    --primary-dark: #2563eb;
+    --border: rgba(255, 255, 255, 0.08);
+    --glow: rgba(59, 130, 246, 0.25);
+}
+
+body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background: radial-gradient(circle at top, #111827, var(--bg));
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header-top {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+
+    position: sticky;
+    top: 0;
+    z-index: 20;
+
+    background: rgba(11, 18, 32, 0.6);
+    backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.logo-area i {
+    color: var(--primary);
+    font-size: 18px;
+}
+
+.Islogged a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 10px;
+    transition: 0.2s;
+    border: 1px solid transparent;
+}
+
+.Islogged a:hover {
+    color: var(--text);
+    border-color: var(--border);
+    background: var(--panel);
+}
+
+/* =========================
+   LAYOUT
+========================= */
+
+.main-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    text-align: center;
+    padding: 80px 20px 60px;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 13px;
+    padding: 8px 14px;
+    border-radius: 999px;
+
+    background: rgba(59, 130, 246, 0.1);
+    color: #93c5fd;
+
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700;
+    line-height: 1.2;
+
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+}
+
+.hero p {
+    max-width: 720px;
+    margin: 0 auto;
+
+    color: var(--muted);
+    font-size: 16px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.hero-buttons {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 12px 18px;
+    border-radius: 12px;
+
+    font-size: 14px;
+    text-decoration: none;
+
+    transition: all 0.25s ease;
+}
+
+/* primary */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.25);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px rgba(59, 130, 246, 0.35);
+}
+
+/* secondary */
+.btn-secondary {
+    border: 1px solid var(--border);
+    color: var(--text);
+    background: var(--panel);
+}
+
+.btn-secondary:hover {
+    background: var(--panel-hover);
+    transform: translateY(-2px);
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.cards {
+    margin-top: 90px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+}
+
+.card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+
+    padding: 22px;
+    border-radius: 16px;
+
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* glow subtle hover */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, var(--glow), transparent 60%);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    background: var(--panel-hover);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card i {
+    font-size: 22px;
+    color: #60a5fa;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.card p {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+/* =========================
+   SCROLL SECTION
+========================= */
+
+.scroll-section {
+    margin-top: 110px;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+.scroll-item {
+    max-width: 720px;
+    padding: 18px 20px;
+
+    border-left: 3px solid var(--primary);
+}
+
+.scroll-item h2 {
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.scroll-item p {
+    color: var(--muted);
+}
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   BACKGROUND CANVAS
+========================= */
+
+#bgParticles {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 768px) {
+    .header-top {
+        padding: 0 18px;
+    }
+
+    .hero {
+        padding: 60px 10px;
+    }
+
+    .scroll-item {
+        border-left: 2px solid var(--primary);
+    }
+}
+
+
+/* user box */
+
+/* =========================
+   USER AREA
+========================= */
+
+.user-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 8px 12px;
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    transition: all 0.25s ease;
+}
+
+.user-box:hover {
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-1px);
+}
+
+/* nome do usuário */
+.user-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 14px;
+    color: #e5e7eb;
+
+    max-width: 160px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-name i {
+    color: #60a5fa;
+    font-size: 18px;
+}
+
+/* botão logout */
+.logout-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 8px 10px;
+    border-radius: 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+
+    color: #e5e7eb;
+    font-size: 13px;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.35);
+    color: #fca5a5;
+    transform: translateY(-1px);
+}
+
+.logout-btn i {
+    font-size: 16px;
+}
+
+.user-name::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    display: inline-block;
+}
+        </style>
+    </head>
+        
+
+    <body>
+
+   <body>
+
+    <canvas id="bgParticles"></canvas>
+
+    <header class="header-top">
+        <div class="logo-area">
+            <i class="bi bi-shield-lock-fill"></i>
+            <span>SecureAuth</span>
+        </div>
+
+        <div class="Islogged" id="userArea">
+            <a href="login.html">Login</a>
+        </div>
+    </header>
+
+    <main class="main-content">
+
+        <section class="hero reveal">
+            <span class="hero-badge">
+                <i class="bi bi-code-slash"></i>
+                Full Stack Authentication
+            </span>
+
+            <h1>
+                Sistema de Autenticação JWT<br />
+                com FastAPI + Python
+            </h1>
+
+            <p>
+                Aplicação Full Stack desenvolvida com Python,
+                FastAPI, JWT, MySQL e Frontend responsivo.
+                Possui autenticação segura, rotas protegidas,
+                login, registro de usuários e validação de token.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="login" class="btn-primary">
+                    <i class="bi bi-box-arrow-in-right"></i>
+                    Acessar Sistema
+                </a>
+
+                <a href="https://github.com/Isaque-De-Sa/jwt-system" class="btn-secondary">
+                    <i class="bi bi-github"></i>
+                    Ver Código
+                </a>
+            </div>
+        </section>
+
+        <section class="cards">
+            <div class="card reveal">
+                <i class="bi bi-filetype-py"></i>
+                <h3>Backend Python</h3>
+                <p>API REST desenvolvida com FastAPI, autenticação JWT e validação segura.</p>
+            </div>
+
+            <div class="card reveal">
+                <i class="bi bi-shield-lock"></i>
+                <h3>JWT Authentication</h3>
+                <p>Sistema de login com tokens JWT e rotas protegidas no backend.</p>
+            </div>
+
+            <div class="card reveal">
+                <i class="bi bi-database"></i>
+                <h3>MySQL Database</h3>
+                <p>Integração completa com MySQL para gerenciamento de usuários.</p>
+            </div>
+
+            <div class="card reveal">
+                <i class="bi bi-window"></i>
+                <h3>Frontend Moderno</h3>
+                <p>Interface moderna com animações, toast notifications e responsividade.</p>
+            </div>
+        </section>
+
+        <section class="scroll-section">
+            <div class="scroll-item reveal">
+                <h2>Segurança em primeiro lugar</h2>
+                <p>Tokens JWT garantem autenticação segura entre frontend e backend.</p>
+            </div>
+
+            <div class="scroll-item reveal">
+                <h2>API escalável</h2>
+                <p>FastAPI permite alta performance e estrutura moderna para APIs REST.</p>
+            </div>
+
+            <div class="scroll-item reveal">
+                <h2>Banco de dados estruturado</h2>
+                <p>MySQL garante persistência confiável e organizada dos dados.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="scroll.js"></script>
+
+         <script src="/static/js/home.js"></script>
+
+         <script>
+const reveals = document.querySelectorAll('.reveal');
+
+function revealOnScroll() {
+    const windowHeight = window.innerHeight;
+
+    reveals.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+
+        if (top < windowHeight - 100) {
+            el.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
+         </script>
+    </body>
+
+    </html>
