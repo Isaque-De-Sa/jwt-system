@@ -1,0 +1,710 @@
+    <!DOCTYPE html>
+    <html>
+        <meta charset="UTF-8">
+    <head>
+
+        <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <title>Pagina Inicial</title>
+        <style>
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+    radial-gradient(circle at top right,#1e3a8a22,transparent 30%),
+    radial-gradient(circle at bottom left,#0ea5e922,transparent 30%),
+    #0f172a;
+
+    color:white;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header-top{
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    height:80px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 45px;
+
+    background:rgba(17,24,39,0.75);
+
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+.logo-area{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    font-size:24px;
+    font-weight:700;
+
+    letter-spacing:0.5px;
+}
+
+.logo-area i{
+
+    color:#38bdf8;
+
+    font-size:28px;
+}
+
+.logo-area span{
+
+    background:linear-gradient(to right,#ffffff,#93c5fd);
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* =========================
+   USER AREA
+========================= */
+
+.Islogged{
+
+    display:flex;
+    align-items:center;
+}
+
+.user-box{
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.user-name{
+
+    background:rgba(255,255,255,0.04);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    padding:10px 16px;
+
+    border-radius:14px;
+
+    color:white;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    font-size:15px;
+}
+
+.user-name i{
+    color:#38bdf8;
+}
+
+.logout-btn{
+
+    border:none;
+
+    background:linear-gradient(
+        135deg,
+        #ef4444,
+        #dc2626
+    );
+
+    color:white;
+
+    padding:11px 16px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    font-weight:600;
+
+    transition:0.25s;
+}
+
+.logout-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 10px 20px rgba(239,68,68,0.25);
+}
+
+/* botão login */
+
+.Islogged a{
+
+    color:white;
+    text-decoration:none;
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+
+    padding:12px 22px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    transition:0.25s;
+}
+
+.Islogged a:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 10px 20px rgba(37,99,235,0.30);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.main-content{
+
+    padding:80px 90px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+
+    text-align:center;
+
+    margin-bottom:80px;
+
+    animation:fadeUp 1s ease;
+}
+
+.hero-badge{
+
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    background:rgba(56,189,248,0.08);
+
+    border:1px solid rgba(56,189,248,0.20);
+
+    color:#38bdf8;
+
+    padding:12px 18px;
+
+    border-radius:999px;
+
+    margin-bottom:30px;
+
+    font-size:14px;
+}
+
+.hero h1{
+
+    font-size:64px;
+
+    line-height:1.1;
+
+    margin-bottom:25px;
+
+    max-width:950px;
+
+    margin-inline:auto;
+}
+
+.hero-gradient{
+
+    background:linear-gradient(
+        to right,
+        #38bdf8,
+        #60a5fa,
+        #ffffff
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+
+    font-size:19px;
+
+    color:#cbd5e1;
+
+    max-width:850px;
+
+    margin:auto;
+
+    line-height:1.8;
+}
+
+/* =========================
+   HERO BUTTONS
+========================= */
+
+.hero-buttons{
+
+    margin-top:45px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+}
+
+.btn-primary,
+.btn-secondary{
+
+    text-decoration:none;
+
+    padding:15px 26px;
+
+    border-radius:16px;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    font-weight:600;
+
+    transition:0.25s;
+}
+
+.btn-primary{
+
+    background:linear-gradient(
+        135deg,
+        #38bdf8,
+        #2563eb
+    );
+
+    color:white;
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 12px 30px rgba(56,189,248,0.30);
+}
+
+.btn-secondary{
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,0.10);
+
+    background:rgba(255,255,255,0.03);
+}
+
+.btn-secondary:hover{
+
+    transform:translateY(-4px);
+
+    background:rgba(255,255,255,0.06);
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+
+    gap:28px;
+}
+
+.card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:rgba(30,41,59,0.70);
+
+    backdrop-filter:blur(10px);
+
+    padding:35px;
+
+    border-radius:26px;
+
+    border:1px solid rgba(255,255,255,0.05);
+
+    transition:0.35s;
+}
+
+.card::before{
+
+    content:'';
+
+    position:absolute;
+
+    top:-80px;
+    right:-80px;
+
+    width:180px;
+    height:180px;
+
+    background:#38bdf810;
+
+    border-radius:50%;
+}
+
+.card:hover{
+
+    transform:
+    translateY(-8px)
+    scale(1.02);
+
+    border-color:#38bdf8;
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,0.25);
+}
+
+.card i{
+
+    font-size:44px;
+
+    color:#38bdf8;
+
+    margin-bottom:22px;
+}
+
+.card h3{
+
+    margin-bottom:15px;
+
+    font-size:24px;
+}
+
+.card p{
+
+    color:#cbd5e1;
+
+    line-height:1.7;
+
+    font-size:15px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+
+    margin-top:90px;
+
+    padding:30px;
+
+    text-align:center;
+
+    color:#94a3b8;
+
+    border-top:1px solid rgba(255,255,255,0.06);
+}
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media(max-width:900px){
+
+    .main-content{
+        padding:60px 25px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .header-top{
+        padding:0 20px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .header-top{
+
+        flex-direction:column;
+
+        height:auto;
+
+        gap:15px;
+
+        padding:18px;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .btn-primary,
+    .btn-secondary{
+        width:100%;
+        justify-content:center;
+    }
+}
+        </style>
+    </head>
+        
+
+    <body>
+
+
+    <header class="header-top">
+
+        <div class="logo-area">
+            <i class="bi bi-shield-lock-fill"></i>
+            <span>SecureAuth</span>
+        </div>
+
+    <div class="Islogged" id="userArea">
+        <a href="login.html">Login</a>
+    </div>
+
+    </header>
+
+    <main class="main-content">
+
+       <section class="hero">
+
+    <span class="hero-badge">
+        <i class="bi bi-code-slash"></i>
+        Full Stack Authentication
+    </span>
+
+    <h1>
+        Sistema de Autenticação JWT
+        com FastAPI + Python
+    </h1>
+
+    <p>
+        Aplicação Full Stack desenvolvida com Python,
+        FastAPI, JWT, MySQL e Frontend responsivo.
+        Possui autenticação segura, rotas protegidas,
+        login, registro de usuários e validação de token.
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="login.html" class="btn-primary">
+            <i class="bi bi-box-arrow-in-right"></i>
+            Acessar Sistema
+        </a>
+
+        <a href="#" class="btn-secondary">
+            <i class="bi bi-github"></i>
+            Ver Código
+        </a>
+
+    </div>
+
+</section>
+
+        <section class="cards">
+
+    <div class="card">
+        <i class="bi bi-filetype-py"></i>
+        <h3>Backend Python</h3>
+        <p>
+            API REST desenvolvida com FastAPI,
+            autenticação JWT e validação segura.
+        </p>
+    </div>
+
+    <div class="card">
+        <i class="bi bi-shield-lock"></i>
+        <h3>JWT Authentication</h3>
+        <p>
+            Sistema de login com tokens JWT
+            e rotas protegidas no backend.
+        </p>
+    </div>
+
+    <div class="card">
+        <i class="bi bi-database"></i>
+        <h3>MySQL Database</h3>
+        <p>
+            Integração completa com MySQL
+            para gerenciamento de usuários.
+        </p>
+    </div>
+
+    <div class="card">
+        <i class="bi bi-window"></i>
+        <h3>Frontend Moderno</h3>
+        <p>
+            Interface moderna com animações,
+            toast notifications e responsividade.
+        </p>
+    </div>
+
+</section>
+
+    </main>
+
+
+        <script>
+
+
+
+async function carregarUsuario() {
+
+    const token = localStorage.getItem('token');
+
+    const userArea = document.getElementById('userArea');
+
+    // sem token
+    if (!token) {
+
+        userArea.innerHTML = `
+            <a href="login.html">Login</a>
+        `;
+
+        return;
+    }
+
+    try {
+
+        const res = await fetch('http://127.0.0.1:8000/perfil', {
+
+            method: 'POST',
+
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+
+        });
+
+        // token inválido
+        if (!res.ok) {
+
+            localStorage.removeItem('token');
+
+            userArea.innerHTML = `
+                <a href="login.html">Login</a>
+            `;
+
+            return;
+        }
+
+        const dados = await res.json();
+
+        userArea.innerHTML = `
+
+            <div class="user-box">
+
+                <span class="user-name">
+                    <i class="bi bi-person-circle"></i>
+                    ${dados.usuario.sub}
+                </span>
+
+                <button class="logout-btn" onclick="logout()">
+                    <i class="bi bi-box-arrow-right"></i>
+                    Sair
+                </button>
+
+            </div>
+
+        `;
+
+    } catch (erro) {
+
+        console.log(erro);
+
+        localStorage.removeItem('token');
+
+    }
+
+}
+
+function logout() {
+
+    localStorage.removeItem('token');
+
+    window.location.href = 'login';
+
+}
+
+carregarUsuario();
+
+        </script>
+    </body>
+
+    </html>
